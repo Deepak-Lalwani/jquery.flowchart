@@ -33,7 +33,7 @@ function manipulateJSONStructure(result_array){
                     "inputs": {},
                     "outputs": {
                         "output_1": {
-                            "label": "Output 1"
+                            "label": ""
                         }
                     }
                 }
