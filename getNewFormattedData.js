@@ -171,5 +171,5 @@ function manipulateJSONStructure(result_array){
     } 
 
     console.log("emptyOperators is", JSON.stringify(emptyOperators));
-    return emptyOperators;
+    return JSON.parse(JSON.stringify(emptyOperators).replace(/_/g, "_<wbr/>"));
 }
