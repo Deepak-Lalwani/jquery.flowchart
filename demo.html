@@ -14,6 +14,7 @@
 	<!-- Flowchart CSS and JS -->
 	<link rel="stylesheet" href="jquery.flowchart.css">
 	<script src="jquery.flowchart.js"></script>
+	<script src="getNewFormattedData.js"></script>
 
 	<style>
 		.flowchart-example-container {
@@ -58,6 +59,7 @@
 	<button class="set_data" id="set_data">Set data</button>
 	<button id="save_local">Save to local storage</button>
 	<button id="load_local">Load from local storage</button>
+	<button id="get_formatted_data">Get BPMN Process</button>
 	<div>
 		<textarea id="flowchart_data"></textarea>
 	</div>
@@ -260,6 +262,13 @@
 			}
 			$('#get_data').click(Flow2Text);
 
+			function getFormattedData(){
+				var data = JSON.parse($('#flowchart_data').val());
+				var newData = getNewFormattedData(data);
+				$('#flowchart_data').val(JSON.stringify(newData, null, 2));
+				$flowchart.flowchart('setData', newData);
+			}
+			$('#get_formatted_data').click(getFormattedData);
 			function Text2Flow() {
 				var data = JSON.parse($('#flowchart_data').val());
 				$flowchart.flowchart('setData', data);
